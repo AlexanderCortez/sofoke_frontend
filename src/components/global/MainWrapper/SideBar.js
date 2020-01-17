@@ -34,18 +34,18 @@ export class SideBar extends Component {
           theme="dark"
         >
           <Menu.Item
-            key="1"
-            onClick={() => this.forwardTo('/sofoke')}
-          >
-            <Icon type="database" />
-            <span>Sofoke</span>
-          </Menu.Item>
-          <Menu.Item
             key="2"
             onClick={() => this.forwardTo('/cookies')}
           >
             <Icon type="database" />
             <span>Cookies</span>
+          </Menu.Item>
+          <Menu.Item
+            key="1"
+            onClick={() => this.forwardTo('/sofoke')}
+          >
+            <Icon type="database" />
+            <span>Sofoke</span>
           </Menu.Item>
           <Menu.Item
             key="3"
