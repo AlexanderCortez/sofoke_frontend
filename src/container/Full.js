@@ -1,10 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import CookieComponent from '../components/cookies/Cookies';
-
-const Sofoke = () => {
-  return 'sofoke';
-}
+import SofokeComponent from '../components/sofoke/Sofoke';
 
 const Links = () => {
   return 'links';
@@ -13,7 +10,7 @@ const Links = () => {
 export const Full = () => (
   <Switch>
     <Route path="/" exact component={CookieComponent} />
-    <Route path="/sofoke" component={Sofoke} />
+    <Route path="/sofoke" component={SofokeComponent} />
     <Route path="/cookies" component={CookieComponent} />
     <Route path="/links" component={Links} />
   </Switch>
