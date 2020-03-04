@@ -3,40 +3,20 @@ import { Table } from 'antd';
 
 const columns = [
   {
-    title: 'User',
-    dataIndex: 'user',
-    sorter: (a, b) => a.user.length - b.user.length,
-    sortDirections: ['descend', 'ascend'],
-  },
-  {
     title: 'País',
-    dataIndex: 'pais',
-    sorter: (a, b) => a.pais.length - b.pais.length,
+    dataIndex: 'country',
+    sorter: (a, b) => a.country.length - b.country.length,
     sortDirections: ['descend', 'ascend'],
   },
   {
-    title: 'IP',
-    dataIndex: 'ip',
+    title: 'Cantidad',
+    dataIndex: 'quantity',
     sorter: (a, b) => -1,
     sortDirections: ['descend', 'ascend'],
   },
   {
-    title: 'Fecha',
-    dataIndex: 'fecha',
-    sorter: (a, b) => -1,
-    sortDirections: ['descend', 'ascend'],
-  },
-  {
-    title: 'Estado',
-    dataIndex: 'estado',
-    sorter: (a, b) => -1,
-    sortDirections: ['descend', 'ascend'],
-  },
-  {
-    title: 'ADS',
-    dataIndex: 'ads',
-    sorter: (a, b) => -1,
-    sortDirections: ['descend', 'ascend'],
+    title: 'Entradas Hoy',
+    dataIndex: 'last',
   },
 ];
 
@@ -46,12 +26,8 @@ export const DataTable = ({ data, loading }) => {
       loading={loading}
       columns={columns}
       dataSource={data}
-      rowKey="id"
-      pagination={{
-        pageSizeOptions: ["10", "20", "30", "50", "100"],
-        showSizeChanger: true,
-        locale: { items_per_page: "" }
-      }}
+      rowKey="country"
+      pagination={false}
     />
   )
 }

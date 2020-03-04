@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { DataTable } from './DataTable';
+import { DateRange } from '../global/ui/DateRange';
 
 export class SofokeComponent extends Component {
   constructor(props) {
@@ -10,8 +11,15 @@ export class SofokeComponent extends Component {
   }
 
   componentDidMount() {
-    const { fetchAll } = this.props;
-    fetchAll()
+    this.fetch();
+  }
+
+  fetch = () => {
+    this.setState({
+      loading: true,
+    });
+    const { fetchByRangeDate } = this.props;
+    fetchByRangeDate()
       .then(() => {
         this.setState({
           loading: false,
@@ -21,14 +29,29 @@ export class SofokeComponent extends Component {
         this.setState({
           loading: false,
         });
-      })
+      }) 
+  }
+
+  onGo = () => {
+    this.fetch();
+  }
+
+  onChange = (ranges) => {
+    const { changeDateRange } = this.props;
+    changeDateRange(ranges);
   }
 
   render() {
-    const { sofoke } = this.props;
+    const { sofoke, startDate, endDate } = this.props;
     const { loading } = this.state;
     return (
       <div>
+        <DateRange
+          onGo={this.onGo}
+          startValue={startDate}
+          endValue={endDate}
+          onChange={this.onChange}
+        />
         <h2>Sofoke</h2>
         <DataTable
           loading={loading}

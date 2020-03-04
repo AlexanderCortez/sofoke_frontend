@@ -9,7 +9,7 @@ const Links = () => {
 
 export const Full = () => (
   <Switch>
-    <Route path="/" exact component={CookieComponent} />
+    <Route path="/" exact component={SofokeComponent} />
     <Route path="/sofoke" component={SofokeComponent} />
     <Route path="/cookies" component={CookieComponent} />
     <Route path="/links" component={Links} />
